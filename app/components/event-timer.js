@@ -5,13 +5,15 @@ export default Ember.Component.extend({
   href: '#',
   classNames: ['secondary-content'],
 
+  timer: Ember.computed.alias('event.timer'),
+
   initialCounter: Ember.computed('timer', function () {
     return this.get('timer') * 60000;
   }),
 
   currentCounter: null,
   setCounter: Ember.on('init', function () {
-    this.set('currentCounter', this.get('initialCounter'))
+    this.set('currentCounter', this.get('initialCounter'));
   }),
 
   currentTime: null,
@@ -22,7 +24,7 @@ export default Ember.Component.extend({
         var difference = moment().diff(currentTime);
         this.set("currentCounter", this.get("currentCounter") - difference);
         if (this.get("currentCounter") <= 0) {
-          this.set('currentTime', null);
+          this.finishTimer();
         } else {
           this.set("currentTime", moment());
           this.runTimer();
@@ -43,5 +45,14 @@ export default Ember.Component.extend({
     } else {
       this.set('currentTime', null);
     }
-  })
+  }),
+
+  finishTimer: function () {
+    this.set('currentTime', null);
+    this.set('currentCounter', this.get('initialCounter'));
+
+    if ((window.Notification !== undefined)) {
+      new Notification("Event Complete", { body: this.get('event.name') + " complete" });
+    }
+  }
 });

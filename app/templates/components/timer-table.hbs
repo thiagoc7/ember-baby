@@ -9,7 +9,7 @@
 
 <tbody>
 
-{{#each model as |timer|}}
+{{#each sortedTimers as |timer|}}
   <tr>
     <td>{{date-display timer.start}}</td>
     <td>{{minutes-display timer.duration}}</td>

@@ -2,9 +2,9 @@
 <div class="section">
   <div class="row z-depth-1">
     {{md-input value=newEventName label="Nome" class="col m3 s6"}}
-    {{md-input value=newEventTimer label="Timer" class="col m2 s6"}}
-    {{md-switch checked=newEventOnStart onLabel="Inicio" offLabel="Final" class="col m3 s6 input-field"}}
-    <div class="input-field col m2 s6 center-align">
+    {{md-input value=newEventTimer label="Timer" type="number" class="col m2 s6"}}
+    {{md-switch checked=newEventOnStart onLabel="Inicio" offLabel="Final" class="col m3 s8 input-field"}}
+    <div class="input-field col m2 s4 center-align">
       {{md-btn icon='mdi-content-add' action='createEvent' buttonType='floating'}}
     </div>
   </div>

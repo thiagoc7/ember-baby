@@ -2,7 +2,7 @@
   <li class="collection-item left-align">
     {{event.name}}
     {{#if event.timer}}
-      {{event-timer timer=event.timer timerStarted=timerStarted}}
+      {{event-timer event=event timerStarted=timerStarted}}
     {{/if}}
   </li>
 {{/each}}

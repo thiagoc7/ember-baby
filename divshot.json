@@ -1,6 +1,4 @@
 {
   "name": "ember-baby",
-  "root": "./dist",
-  "clean_urls": true,
-  "error_page": "error.html"
+  "root": "./dist"
 }

@@ -25,6 +25,10 @@ export default Ember.Component.extend({
     this.runTimer();
   }),
 
+  destroyTimer: Ember.on('willDestroyElement', function () {
+    this.sendAction('action', this.get('elapsedTime'));
+  }),
+
   actions: {
     stop: function () {
       this.sendAction('action', this.get('elapsedTime'));

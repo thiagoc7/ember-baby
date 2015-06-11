@@ -1,5 +1,6 @@
-<h5>Última: {{date-display lastStart}}</h5>
+<h5>Última: {{hour-display lastStartDisplay}}</h5>
 
 {{md-range value=nextIn min=10 max=300}}
 
-<h5>Próxima: {{date-display nextTime}}</h5>
+<h5>Próxima: {{hour-display nextTime}}</h5>
+<p>{{nextInDisplay}}</p>
