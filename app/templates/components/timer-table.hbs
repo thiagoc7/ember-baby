@@ -1,0 +1,24 @@
+<thead>
+<tr>
+  <th data-field="inicio">Início</th>
+  <th data-field="timer">Duração</th>
+  <th data-field="timer">Lado</th>
+  <th data-field="timer">Apagar</th>
+</tr>
+</thead>
+
+<tbody>
+
+{{#each model as |timer|}}
+  <tr>
+    <td>{{date-display timer.start}}</td>
+    <td>{{minutes-display timer.duration}}</td>
+    <td>{{timer.side}}</td>
+    <td>
+      <a class="btn-floating waves-effect waves-light red" {{action 'deleteTimer' timer}}>
+        <i class="mdi-action-delete"></i>
+      </a>
+    </td>
+  </tr>
+{{/each}}
+</tbody>

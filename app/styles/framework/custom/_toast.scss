@@ -1,0 +1,8 @@
+.toast {
+  &.done {
+    background-color: color("green", "base");
+  }
+  &.fail {
+    background-color: color("materialize-red", "lighten-1");
+  }
+}

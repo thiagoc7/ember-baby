@@ -1,0 +1,63 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "name": "oliveira"
+    },
+    {
+      "id": 2,
+      "name": "outeiro"
+    }
+  ],
+  "tanks": [
+    {
+      "id": 1,
+      "gas": "GC",
+      "capacity": 15000,
+      "minimum": 5000,
+      "storeId": 1
+    },
+    {
+      "id": 2,
+      "gas": "ET",
+      "capacity": 10000,
+      "minimum": 3000,
+      "storeId": 1
+    },
+    {
+      "id": 3,
+      "gas": "S10",
+      "capacity": 15000,
+      "minimum": 6000,
+      "storeId": 1
+    },
+    {
+      "id": 4,
+      "gas": "S500",
+      "capacity": 30000,
+      "minimum": 22000,
+      "storeId": 1
+    },
+    {
+      "id": 5,
+      "gas": "GC",
+      "capacity": 30000,
+      "minimum": 15000,
+      "storeId": 2
+    },
+    {
+      "id": 6,
+      "gas": "ET",
+      "capacity": 15000,
+      "minimum": 5000,
+      "storeId": 2
+    },
+    {
+      "id": 7,
+      "gas": "S10",
+      "capacity": 15000,
+      "minimum": 6000,
+      "storeId": 2
+    }
+  ]
+}
