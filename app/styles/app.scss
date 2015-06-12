@@ -1,22 +1,6 @@
 @import 'framework/materialize';
 @import "templates/import";
 
-header, main, footer, nav {
-  padding-left: 240px;
-}
-
-@media only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
-}
-
-@media #{$large-and-up} {
-  .container {
-    width: 95%;
-  }
-}
-
 .card a {
   color: $primary-color-light;
 }

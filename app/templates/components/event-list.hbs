@@ -1,8 +1,3 @@
 {{#each events as |event|}}
-  <li class="collection-item left-align">
-    {{event.name}}
-    {{#if event.timer}}
-      {{event-timer event=event timerStarted=timerStarted}}
-    {{/if}}
-  </li>
+  {{event-item event=event}}
 {{/each}}

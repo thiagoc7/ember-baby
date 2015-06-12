@@ -1,11 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'a',
-  href: '#',
-  classNames: ['secondary-content'],
-
+  tagName: 'li',
+  classNames: ['collection-item', 'left-align', 'pointer'],
+  timerStarted: false,
   timer: Ember.computed.alias('event.timer'),
+
+  click: function () {
+    this.toggleProperty('timerStarted');
+  },
 
   initialCounter: Ember.computed('timer', function () {
     return this.get('timer') * 60000;

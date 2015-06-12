@@ -1,37 +1,36 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  action: 'stop',
-  runnerLoop: false,
+  tagName: 'li',
+  classNames: ['collection-item', 'avatar', 'pointer'],
+  counter: 0,
+  running: false,
 
-  elapsedTime: Ember.computed('start', 'runnerLoop', function () {
-    var start = this.get('start');
-    if (start) {
-      return  moment().diff(start);
-    }
-    return 0;
+  elapsedTime: Ember.computed('counter', function () {
+    return  moment().hour(0).minute(0).second(this.get('counter')).format('mm:ss');
   }),
 
   runTimer: function() {
     Ember.run.later(this, function() {
-      if (this.get("start")) {
-        this.toggleProperty('runnerLoop');
+      if (this.get('running')) {
+        this.set('counter', this.get('counter') + 1);
+        this.sendAction('action', this.get('counter'));
         this.runTimer();
       }
     }, 1000);
   },
 
-  startLoop: Ember.on('didInsertElement', function () {
-    this.runTimer();
-  }),
-
   destroyTimer: Ember.on('willDestroyElement', function () {
-    this.sendAction('action', this.get('elapsedTime'));
+    this.set('running', false);
+    this.set('counter', 0);
   }),
 
-  actions: {
-    stop: function () {
-      this.sendAction('action', this.get('elapsedTime'));
+  click: function () {
+    if (this.get('running')) {
+      this.set('running', false);
+    } else {
+      this.set('running', true);
+      this.runTimer();
     }
   }
 });

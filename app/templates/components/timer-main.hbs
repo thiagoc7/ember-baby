@@ -1,0 +1,13 @@
+<div class="section">
+  <h1>timers</h1>
+  <ul class="collection">
+    {{timer-clock side='E' action='setEElapsed'}}
+    {{timer-clock side='D' action='setDElapsed'}}
+  </ul>
+</div>
+
+<div class="section">
+  {{timer-after}}
+</div>
+
+<i class="large mdi-action-done pointer" {{action 'save'}}></i>

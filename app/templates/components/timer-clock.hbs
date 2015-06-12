@@ -1,7 +1,13 @@
+<i class="circle red">{{side}}</i>
+
 <div class="counter">
-  {{clock-display elapsedTime}}
+  {{elapsedTime}}
 </div>
 
-<div class="controls">
-  <i class="medium mdi-av-stop pointer" {{action 'stop'}}></i>
+<div class="secondary-content">
+  {{#if running}}
+    <i class="mdi-av-pause pointer"></i>
+  {{else}}
+    <i class="mdi-av-play-arrow pointer"></i>
+  {{/if}}
 </div>

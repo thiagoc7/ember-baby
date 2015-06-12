@@ -1,6 +1,9 @@
 <h5>Última: {{hour-display lastStartDisplay}}</h5>
 
-{{md-range value=nextIn min=10 max=300}}
-
 <h5>Próxima: {{hour-display nextTime}}</h5>
-<p>{{nextInDisplay}}</p>
+
+<p>
+  <a class="btn-floating grey lighten-1" {{action 'removeTime'}}> <i class="mdi-content-remove"></i></a>
+  <span> {{nextInDisplay}} </span>
+  <a class="btn-floating grey lighten-1" {{action 'addTime'}}> <i class="mdi-content-add"></i></a>
+</p>
