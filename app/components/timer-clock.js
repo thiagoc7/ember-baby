@@ -6,14 +6,16 @@ export default Ember.Component.extend({
   counter: 0,
   running: false,
 
-  elapsedTime: Ember.computed('counter', function () {
-    return  moment().hour(0).minute(0).second(this.get('counter')).format('mm:ss');
-  }),
+  //elapsedTime: Ember.computed('counter', function () {
+  //  return  moment().hour(0).minute(0).second(this.get('counter')).format('mm:ss');
+  //}),
 
   runTimer: function() {
     Ember.run.later(this, function() {
       if (this.get('running')) {
-        this.set('counter', this.get('counter') + 1);
+        var difference = moment().diff(this.get('currentTime'));
+        this.set('counter', this.get('counter') + difference);
+        this.set("currentTime", moment());
         this.sendAction('action', this.get('counter'));
         this.runTimer();
       }
@@ -30,6 +32,7 @@ export default Ember.Component.extend({
       this.set('running', false);
     } else {
       this.set('running', true);
+      this.set('currentTime', moment());
       this.runTimer();
     }
   }
