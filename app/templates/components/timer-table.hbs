@@ -12,8 +12,8 @@
 {{#each sortedTimers as |timer|}}
   <tr>
     <td>{{date-display timer.start}}</td>
-    <td>{{minutes-display timer.eDuration}}</td>
-    <td>{{minutes-display timer.dDuration}}</td>
+    <td class="{{if timer.lastSideE 'teal-text'}}">{{minutes-display timer.eDuration}}</td>
+    <td class="{{unless timer.lastSideE 'teal-text'}}">{{minutes-display timer.dDuration}}</td>
     <td>
       <a class="btn-floating waves-effect waves-light red" {{action 'deleteTimer' timer}}>
         <i class="mdi-action-delete"></i>

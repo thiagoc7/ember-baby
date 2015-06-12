@@ -1,18 +1,42 @@
 <h5>Eventos</h5>
-<div class="section">
-  <div class="row z-depth-1">
-    {{md-input value=newEventName label="Nome" class="col m3 s6"}}
-    {{md-input value=newEventTimer label="Timer" type="number" class="col m2 s6"}}
-    {{md-switch checked=newEventOnStart onLabel="Inicio" offLabel="Final" class="col m3 s8 input-field"}}
-    <div class="input-field col m2 s4 center-align">
-      {{md-btn icon='mdi-content-add' action='createEvent' buttonType='floating'}}
+
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col m6 s12">
+        {{input placeholder="Name" id="event_name" type="text" class="validate" value=newEventName}}
+        <label for="event_name">Nome</label>
+      </div>
+      <div class="input-field col m6 s12">
+        {{input placeholder="Timer" id="event_timer" type="text" class="validate" value=newEventTimer}}
+        <label for="event_timer">Timer</label>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="input-field col m6 s8">
+        <div class="switch">
+          <label>
+            Final
+            {{input type="checkbox" checked=newEventOnStart}}
+            <span class="lever"></span>
+            Início
+          </label>
+        </div>
+      </div>
+      <div class="input-field col m6 s4">
+        <button class="btn-floating" {{action 'createEvent'}}>
+          <i class="mdi-content-add"></i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
 
-<div class="section">
-  <div class="row z-depth-1">
-    <table class="centered">
+<br>
+
+<div class="row">
+  <div class="section">
+    <table class="centered bordered">
       <thead>
       <tr>
         <th data-field="evento">Evento</th>

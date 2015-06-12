@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   lastStartDisplay: Ember.computed('lastStart', function () {
     var start = moment(this.get('lastStart'));
     var remainder = (5 - start.minute()) % 5;
-    return moment(start).add("minutes", remainder);
+    return moment(start).add(remainder, "minutes");
   }),
 
   nextInDisplay: Ember.computed('nextIn', function () {

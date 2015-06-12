@@ -5,9 +5,9 @@
 </div>
 
 <div class="secondary-content">
-  {{#if running}}
+  {{#liquid-if running use="toUp"}}
     <i class="mdi-av-pause pointer"></i>
   {{else}}
     <i class="mdi-av-play-arrow pointer"></i>
-  {{/if}}
+  {{/liquid-if}}
 </div>

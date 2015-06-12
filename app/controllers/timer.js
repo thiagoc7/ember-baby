@@ -4,6 +4,10 @@ export default Ember.Controller.extend({
   newTimerStart: null,
   timerConfirmed: false,
 
+  scrollTop: Ember.observer('timerConfirmed', function () {
+    window.scrollTo(0,0);
+  }),
+
   lastStart: Ember.computed('model.[]', function () {
     var lastObject = this.get('model').sortBy('start').get('lastObject');
     if (lastObject) {
@@ -23,14 +27,16 @@ export default Ember.Controller.extend({
       this.set('timerConfirmed', true);
     },
 
-    save: function (eDuration, dDuration) {
+    save: function (eDuration, dDuration, eFinish, dFinish) {
       var start = this.get('newTimerStart');
       if (!start) { return false; }
 
       var timer = this.store.createRecord('timer', {
         start: this.get('newTimerStart'),
         eDuration: eDuration,
-        dDuration: dDuration
+        dDuration: dDuration,
+        eFinish: eFinish,
+        dFinish: dFinish
       });
 
       var controller = this;

@@ -1,19 +1,10 @@
 @import 'framework/materialize';
 @import "templates/import";
 
-.card a {
-  color: $primary-color-light;
-}
-
-body > .ember-view { min-height: 100%; }
-.liquid-child { margin: 5 -5px; padding: 15px; }
-
-.spinner-container {
-  text-align: left;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 100%;
+@each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
+  .#{$mdi-prefix}#{$mdi-icon-name}:before {
+    content: "\""+ $mdi-icon-value +"\"";
+  }
 }
 
 .pointer {
