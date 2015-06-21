@@ -23,6 +23,7 @@ export default Ember.Component.extend({
   },
 
   destroyTimer: Ember.on('willDestroyElement', function () {
+    this.sendAction('save');
     this.set('running', false);
     this.set('counter', 0);
   }),
@@ -35,5 +36,6 @@ export default Ember.Component.extend({
       this.set('currentTime', moment());
       this.runTimer();
     }
+    this.sendAction('save');
   }
 });

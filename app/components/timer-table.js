@@ -5,9 +5,6 @@ export default Ember.Component.extend({
   classNames: ['bordered', 'centered'],
   action: 'deleteTimer',
 
-  sortProperties: ['momentStart:desc'],
-  sortedTimers: Ember.computed.sort('model', 'sortProperties'),
-
   actions: {
     deleteTimer: function (timer) {
       this.sendAction('action', timer);
